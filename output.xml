@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.5 on darwin)" generated="20220728 18:14:44.749" rpa="false" schemaversion="3">
+<suite id="s1" name="Req Robot" source="/Users/lisa/Desktop/rest/re_test/req_robot.robot">
+<kw name="Open Browser" library="Selenium2Library" type="SETUP">
+<arg>https://ipac.library.taichung.gov.tw/webpac/search.cfm</arg>
+<arg>firefox</arg>
+<arg>executable_path=./geckodriver</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220728 18:14:47.383" level="INFO">Opening browser 'firefox' to base url 'https://ipac.library.taichung.gov.tw/webpac/search.cfm'.</msg>
+<msg timestamp="20220728 18:14:47.427" level="INFO">Firefox driver log is always forced to to: /Users/lisa/Desktop/rest/re_test/geckodriver-1.log</msg>
+<status status="PASS" starttime="20220728 18:14:47.382" endtime="20220728 18:15:56.861"/>
+</kw>
+<test id="s1-t1" name="Verify Article Is Existing" line="25">
+<kw name="webdata">
+<var>${value}</var>
+<kw name="Requestdata" library="requestdata">
+<var>${result}</var>
+<msg timestamp="20220728 18:15:58.727" level="INFO">${result} = 鬼滅之刃</msg>
+<status status="PASS" starttime="20220728 18:15:56.866" endtime="20220728 18:15:58.728"/>
+</kw>
+<msg timestamp="20220728 18:15:58.728" level="INFO">${value} = 鬼滅之刃</msg>
+<status status="PASS" starttime="20220728 18:15:56.866" endtime="20220728 18:15:58.728"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${value}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220728 18:15:58.729" level="INFO">鬼滅之刃</msg>
+<status status="PASS" starttime="20220728 18:15:58.729" endtime="20220728 18:15:58.729"/>
+</kw>
+<kw name="GetDataTest">
+<var>${text}</var>
+<doc>抓取內容</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>xpath=/html/body/div[4]/div[3]/div[2]/ul/li[3]/a</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220728 18:15:58.730" endtime="20220728 18:15:59.356"/>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<var>${text}</var>
+<arg>xpath=/html/body/div[4]/div[3]/div[2]/ul/li[3]/a</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220728 18:15:59.554" level="INFO">${text} = 鬼滅之刃</msg>
+<status status="PASS" starttime="20220728 18:15:59.357" endtime="20220728 18:15:59.554"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220728 18:15:59.554" level="INFO">鬼滅之刃</msg>
+<status status="PASS" starttime="20220728 18:15:59.554" endtime="20220728 18:15:59.555"/>
+</kw>
+<msg timestamp="20220728 18:15:59.555" level="INFO">${text} = 鬼滅之刃</msg>
+<status status="PASS" starttime="20220728 18:15:58.729" endtime="20220728 18:15:59.555"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${text}</arg>
+<arg>${value}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20220728 18:15:59.555" endtime="20220728 18:15:59.556"/>
+</kw>
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220728 18:15:59.556" endtime="20220728 18:16:03.302"/>
+</kw>
+<status status="PASS" starttime="20220728 18:15:56.862" endtime="20220728 18:16:03.302"/>
+</test>
+<status status="PASS" starttime="20220728 18:14:44.751" endtime="20220728 18:16:03.303"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Req Robot">Req Robot</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
